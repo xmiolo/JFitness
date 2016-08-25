@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Loader extends Application {
+public class Inicializa extends Application {
 
 	public static void main(String[] args) {
 		launch();
@@ -14,12 +14,13 @@ public class Loader extends Application {
 	
 	@Override
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("fxml/telaLogin.fxml"));
 
-		Scene scene = new Scene(root, 300, 275);
+		Scene scene = new Scene(root);
 
-		stage.setTitle("FXML Welcome");
+		stage.setTitle("JFitness - Acesso");
 		stage.setScene(scene);
+		stage.setResizable(false);
 		stage.show();
 	}
 }

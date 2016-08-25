@@ -11,7 +11,7 @@ public class LoginController {
 		this.pessoaDAO = new PessoaDAO();
 	}
 	
-	public void autenticarLogin(Pessoa pessoa){
+	public void autenticarPessoa(Pessoa pessoa){
 		if(this.pessoaDAO.autenticarPessoa(pessoa)){
 			System.out.println("LoginController|Anteticado!");
 		} else {

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import com.conexao.ConexaoJDBCFactory;
 import com.model.Pessoa;
-import com.utils.SQLUtils;
+import com.sql.SQLUtils;
 
 public class PessoaDAO {
 	private Connection conn = new ConexaoJDBCFactory().getConexao();
@@ -53,10 +53,11 @@ public class PessoaDAO {
 			preparedStatement.setString(1, pessoa.getEmail());
 			preparedStatement.setString(2, pessoa.getSenha());
 			resultSet = preparedStatement.executeQuery();
-			while(resultSet.next()){
+			if(resultSet.next()){
 				System.out.println("Nome: "+resultSet.getString("nome"));
+				return true;
 			}
-			return true;
+			return false;
 		} catch (SQLException e) {
 			System.out.println("PessoaDAO|persistirPessoa|erro ao autenticar");
 			e.printStackTrace();

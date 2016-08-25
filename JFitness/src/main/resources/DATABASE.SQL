@@ -4,7 +4,7 @@
 
 CREATE TABLE public.pessoa
 (
-  "cdPessoa" integer NOT NULL, -- Código de pessoa
+  cdPessoa integer NOT NULL, -- Código de pessoa
   nome character varying(200) NOT NULL, -- Nome completo da pessoa
   senha character varying(200) NOT NULL, -- senha convertida em MD5
   email character varying(200) NOT NULL, -- email pra login

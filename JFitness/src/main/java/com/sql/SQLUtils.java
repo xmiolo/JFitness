@@ -1,4 +1,4 @@
-package com.utils;
+package com.sql;
 
 public class SQLUtils {
 	public static String SQL_INSERT_PESSOA = "INSERT INTO public.pessoa(\"cdPessoa\", nome, senha, email, endereco, cidade) VALUES (?,?,?,?,?,?);";
