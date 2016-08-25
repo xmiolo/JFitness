@@ -12,10 +12,10 @@ public class ConexaoJDBCFactory{
 	
 	public Connection getConexao() {
 		try {
-			System.out.println("Conectando!");
+			//System.out.println("Conectando!");
 			return DriverManager.getConnection("jdbc:postgresql://localhost:5432/jfitness", "postgres", "123");
 		} catch (SQLException e) {
-			System.out.println("Falha na Conexão!");
+			System.out.println("Falha na Conexão com o banco!");
 			e.printStackTrace();
 		}
 		return null;
