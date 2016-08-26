@@ -30,7 +30,7 @@ public class ChamaTela {
 		}
 		NEWSTAGE = (Stage) stage;
 		SCENE = new Scene(ROOT);
-		
+		SCENE.getStylesheets().add("fextile.css");
 		NEWSTAGE.setTitle(title);
 		NEWSTAGE.setScene(SCENE);
 		NEWSTAGE.setResizable(resizable);

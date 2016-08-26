@@ -41,7 +41,6 @@ public class PessoaDAO {
 				System.out.println("PessoaDAO|persistirPessoa|erro ao dar close no prepareStatement e Connexao");
 				e.printStackTrace();
 			}
-			
 		}
 		return false;
 		

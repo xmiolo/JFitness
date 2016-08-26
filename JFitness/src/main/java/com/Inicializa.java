@@ -17,7 +17,7 @@ public class Inicializa extends Application {
 		Parent root = FXMLLoader.load(getClass().getResource("fxml/telaLogin.fxml"));
 
 		Scene scene = new Scene(root);
-
+		scene.getStylesheets().add("fextile.css");
 		stage.setTitle("JFitness - Acesso");
 		stage.setScene(scene);
 		stage.setResizable(false);
