@@ -46,11 +46,11 @@ public class PessoaDAO {
 		
 	}
 
-	public boolean autenticarPessoa(Pessoa pessoa) {
+	public boolean autenticarPessoa(String email, String senha) {
 		try {
 			preparedStatement = conn.prepareStatement(SQLUtils.SQL_AUTH_PESSOA);
-			preparedStatement.setString(1, pessoa.getEmail());
-			preparedStatement.setString(2, pessoa.getSenha());
+			preparedStatement.setString(1, email);
+			preparedStatement.setString(2, senha);
 			resultSet = preparedStatement.executeQuery();
 			if(resultSet.next()){
 				System.out.println("Nome: "+resultSet.getString("nome"));

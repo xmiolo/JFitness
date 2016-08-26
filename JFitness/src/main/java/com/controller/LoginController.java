@@ -12,6 +12,6 @@ public class LoginController {
 	}
 	
 	public boolean autenticarPessoa(Pessoa pessoa){
-		return this.pessoaDAO.autenticarPessoa(pessoa);
+		return this.pessoaDAO.autenticarPessoa(pessoa.getEmail(), pessoa.getSenha());
 	}
 }
