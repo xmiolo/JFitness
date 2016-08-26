@@ -10,25 +10,30 @@ import javafx.stage.Window;
 
 public class ChamaTela {
 	
-	private static Parent root;
-	private static Stage stageBuild;
-	private static Scene scene;
+	private static Parent ROOT;
+	private static Stage NEWSTAGE;
+	private static Scene SCENE;
 	
 	public ChamaTela(){}
-	
+	/**
+	 * 
+	 * @param resource (.fxml a ser carregado) 
+	 * @param stage (.getStage().getWindow() de algum componente)
+	 * @param title (String titulo da tela)
+	 * @param resizable 
+	 */
 	public static void Montar(String resource, Window stage, String title, boolean resizable){
-		
 		try {
-			root = FXMLLoader.load(ChamaTela.class.getResource("../fxml/"+resource));
+			ROOT = FXMLLoader.load(ChamaTela.class.getResource("../fxml/"+resource));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		stageBuild = (Stage) stage;
-		scene = new Scene(root);
+		NEWSTAGE = (Stage) stage;
+		SCENE = new Scene(ROOT);
 		
-		stageBuild.setTitle(title);
-		stageBuild.setScene(scene);
-		stageBuild.setResizable(resizable);
-		stageBuild.show();
+		NEWSTAGE.setTitle(title);
+		NEWSTAGE.setScene(SCENE);
+		NEWSTAGE.setResizable(resizable);
+		NEWSTAGE.show();
 	}
 }
