@@ -5,9 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.conexao.ConexaoJDBCFactory;
 import com.model.Pessoa;
 import com.sql.SQLUtils;
+import com.utils.ConexaoJDBCFactory;
 
 public class PessoaDAO {
 	private Connection conn = new ConexaoJDBCFactory().getConexao();
