@@ -11,9 +11,9 @@ public class PessoaController {
 	}
 
 
-	public void novaPessoa(Pessoa pessoa){
+	/*public void novaPessoa(Pessoa pessoa){
 		if(pessoaDAO.persistirPessoa(pessoa)){
 			System.out.println("PessoaController|Inseriu a pessoa: "+pessoa.getNome());
 		}
-	}
+	}*/
 }

@@ -1,22 +1,32 @@
 package com.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
+
+import org.hibernate.SQLQuery;
+import org.hibernate.Transaction;
 
 import com.model.Pessoa;
-import com.sql.SQLUtils;
-import com.utils.ConexaoJDBCFactory;
 
-public class PessoaDAO {
-	private Connection conn = new ConexaoJDBCFactory().getConexao();
-	private PreparedStatement preparedStatement;
-	private ResultSet resultSet;
+public class PessoaDAO extends GenericDAO<Pessoa, Long> {
+	private static PessoaDAO instance;
+	//private Connection conn = new ConexaoJDBCFactory().getConexao();
+	//private PreparedStatement preparedStatement;
+	//private ResultSet resultSet;
 	
-	public PessoaDAO() {}
+	public static PessoaDAO getInstance() {
+		if (instance == null) {
+			instance = new PessoaDAO();
+		}
+		return instance;
+	}
+	
+	
+	public PessoaDAO() {
+		super(Pessoa.class);
+	}
 
-	public boolean persistirPessoa(Pessoa pessoa) {
+
+	/*public boolean persistirPessoa(Pessoa pessoa) {
 		try {
 			
 			preparedStatement = conn.prepareStatement(SQLUtils.SQL_INSERT_PESSOA);
@@ -44,9 +54,24 @@ public class PessoaDAO {
 		}
 		return false;
 		
-	}
+	}*/
 
-	public boolean autenticarPessoa(String email, String senha) {
+	public boolean autenticaHibernate(String email, String senha){
+		Pessoa userAuth = new Pessoa();
+		
+		Transaction tx = getSession().beginTransaction();
+		SQLQuery query = getSession().createSQLQuery("select * from pessoa where email = '"+email+"' and senha = md5('"+senha+"'");
+		query.addEntity(Pessoa.class);
+		List<Pessoa> rows = query.list();
+		for(Pessoa objeto : rows){
+			if(objeto != null){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/*public boolean autenticarPessoa(String email, String senha) {
 		try {
 			preparedStatement = conn.prepareStatement(SQLUtils.SQL_AUTH_PESSOA);
 			preparedStatement.setString(1, email);
@@ -72,6 +97,6 @@ public class PessoaDAO {
 			
 		}
 		return false;
-	}
+	}*/
 	
 }

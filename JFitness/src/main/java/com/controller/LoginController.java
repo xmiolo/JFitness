@@ -8,10 +8,10 @@ public class LoginController {
 	private PessoaDAO pessoaDAO;
 
 	public LoginController() {
-		this.pessoaDAO = new PessoaDAO();
+		this.pessoaDAO.getInstance();
 	}
 	
 	public boolean autenticarPessoa(Pessoa pessoa){
-		return this.pessoaDAO.autenticarPessoa(pessoa.getEmail(), pessoa.getSenha());
+		return this.pessoaDAO.autenticaHibernate(pessoa.getEmail(), pessoa.getSenha());
 	}
 }
