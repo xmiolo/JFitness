@@ -1,14 +1,5 @@
 package com;
 
-import java.util.List;
-
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.AnnotationConfiguration;
-
-import com.model.Pessoa;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

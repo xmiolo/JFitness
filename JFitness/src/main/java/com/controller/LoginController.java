@@ -5,13 +5,14 @@ import com.model.Pessoa;
 
 public class LoginController {
 
-	private PessoaDAO pessoaDAO;
+	private static PessoaDAO pessoaDAO;
 
 	public LoginController() {
-		this.pessoaDAO.getInstance();
+		super();
+		this.pessoaDAO = pessoaDAO.getInstance();
 	}
 	
 	public boolean autenticarPessoa(Pessoa pessoa){
-		return this.pessoaDAO.autenticaHibernate(pessoa.getEmail(), pessoa.getSenha());
+		return this.pessoaDAO.getAutenticacao(pessoa.getEmail(), pessoa.getSenha());
 	}
 }

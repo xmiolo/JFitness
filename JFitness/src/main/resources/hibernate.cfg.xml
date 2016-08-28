@@ -21,7 +21,7 @@
 
 
 		<property name="hibernate.current_session_context_class">thread</property>
-		<mapping class="com.br.cloud.model.Pessoa" />
+		<mapping class="com.model.Pessoa" />
 
 	</session-factory>
 </hibernate-configuration>

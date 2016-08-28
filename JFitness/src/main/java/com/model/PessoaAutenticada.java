@@ -1,5 +1,10 @@
 package com.model;
 
+/**
+ * Classe que guarda a pessoa logada no sistema
+ * @author Gregori
+ *
+ */
 public final class PessoaAutenticada {
 	private static PessoaAutenticada pessoaAutenticada;
 	private static Pessoa PESSOA;
