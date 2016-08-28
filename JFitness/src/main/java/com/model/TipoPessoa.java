@@ -13,8 +13,8 @@ public class TipoPessoa {
 	@GeneratedValue
 	@Column(name = "cdTipo",nullable=false, unique=true)
 	private Integer cdTipo;
-	@Column(name = "tipo")
-	private String tipo;
+	@Column(name = "descricao")
+	private String descricao;
 	
 	
 	public TipoPessoa() {	}
@@ -26,13 +26,13 @@ public class TipoPessoa {
 		this.cdTipo = cdTipo;
 	}
 	public String getTipo() {
-		return tipo;
+		return descricao;
 	}
 	public void setTipo(String tipo) {
-		this.tipo = tipo;
+		this.descricao = tipo;
 	}
 	@Override
 	public String toString() {
-		return "TipoPessoa [cdTipo=" + cdTipo + ", tipo=" + tipo + "]";
+		return descricao;
 	}
 }
