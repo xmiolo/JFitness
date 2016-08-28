@@ -22,7 +22,7 @@ public class ChamaTela {
 	 * @param title (String titulo da tela)
 	 * @param resizable 
 	 */
-	public static void Montar(String resource, Window stage, String title, boolean resizable){
+	public static void Montar(String resource, Window stage, String title, boolean resizable, boolean maximized){
 		try {
 			ROOT = FXMLLoader.load(ChamaTela.class.getResource("../fxml/"+resource));
 		} catch (IOException e) {
@@ -34,6 +34,9 @@ public class ChamaTela {
 		NEWSTAGE.setTitle(title);
 		NEWSTAGE.setScene(SCENE);
 		NEWSTAGE.setResizable(resizable);
+		NEWSTAGE.setMaximized(false);
+		NEWSTAGE.setMaximized(maximized);
 		NEWSTAGE.show();
 	}
+	
 }

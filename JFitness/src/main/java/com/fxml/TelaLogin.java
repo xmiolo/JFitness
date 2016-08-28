@@ -44,7 +44,7 @@ public class TelaLogin {
 		if(!lController.autenticarPessoa(pessoa)){
 			alert.show();
 		} else {
-			ChamaTela.Montar("menuPrincipal.fxml", btnEntrar.getScene().getWindow(), "JFitness - Menu", false);
+			ChamaTela.Montar("menuPrincipal.fxml", btnEntrar.getScene().getWindow(), "JFitness - Menu", false, true);
 		}
 		
 	}
