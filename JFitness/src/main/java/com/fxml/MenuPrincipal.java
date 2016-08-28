@@ -15,7 +15,7 @@ public class MenuPrincipal {
 	
 	
 	public void menuPessoas() throws IOException{
-		ChamaTela.Montar("cadPessoas.fxml", btnPessoas.getScene().getWindow(), "JFitness - Cadastro de Pessoas", false, true);
+		ChamaTela.Montar("cadPessoas.fxml", btnPessoas.getScene().getWindow(), "JFitness - Cadastro de Pessoas", false, false);
 	}
 	
 	

@@ -1,5 +1,7 @@
 package com.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,7 +21,12 @@ public class Pessoa {
 	private String endereco;
 	@Column(name="cidade")
 	private String cidade;
-
+	@Column(name="telefone")
+	private String telefone;
+	@Column(name="dtNascimento")
+	private LocalDate dtNascimento;
+	
+	
 	public Pessoa() {
 	}
 
@@ -69,6 +76,22 @@ public class Pessoa {
 
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public LocalDate getDtNascimento() {
+		return dtNascimento;
+	}
+
+	public void setDtNascimento(LocalDate dtNascimento) {
+		this.dtNascimento = dtNascimento;
 	}
 
 	@Override

@@ -2,12 +2,20 @@
 
 -- DROP TABLE public.pessoa;
 
-CREATE TABLE public.pessoa
+CREATE TABLE pessoa
 (
-  cdPessoa INTEGER PRIMARY KEY NOT NULL, -- Código de pessoa
-  nome character varying(200) NOT NULL, -- Nome completo da pessoa
-  senha character varying(200) NOT NULL, -- senha convertida em MD5
-  email character varying(200) NOT NULL, -- email pra login
-  endereco character varying(200), -- rua tal, numero tal, apartamento tal
-  cidade character varying(100)
+  cdpessoa integer NOT NULL,
+  nome character varying(200) NOT NULL,
+  senha character varying(200) NOT NULL,
+  email character varying(200) NOT NULL,
+  endereco character varying(200),
+  cidade character varying(100),
+  telefone character varying(12),
+  "dtNascimento" date,
+  CONSTRAINT pessoa_pkey PRIMARY KEY (cdpessoa)
 )
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE pessoa
+  OWNER TO postgres;

@@ -1,14 +1,17 @@
 package com.fxml;
 
-import javafx.stage.Stage;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
 public class CadPessoas {
 	
-	private Stage stageMenu;
+	@FXML
+	private TextField txtNome;
+	@FXML
+	private TextField txtDtNasc;
+	@FXML
+	private TextField txtEndereco;
 	
-	
-
-
-
 	
 }
