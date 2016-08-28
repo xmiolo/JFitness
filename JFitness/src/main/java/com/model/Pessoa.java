@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "pessoa", schema = "public")
 public class Pessoa {
+	
 	@Id
 	@GeneratedValue
 	@Column(name = "cdPessoa",nullable=false, unique=true)
@@ -25,10 +26,11 @@ public class Pessoa {
 	private String telefone;
 	@Column(name="dtNascimento")
 	private LocalDate dtNascimento;
+	@ManyToOne
+	private TipoPessoa tipoPessoa;
 	
 	
-	public Pessoa() {
-	}
+	public Pessoa() {	}
 
 	public Integer getCdPessoa() {
 		return cdPessoa;
@@ -92,6 +94,14 @@ public class Pessoa {
 
 	public void setDtNascimento(LocalDate dtNascimento) {
 		this.dtNascimento = dtNascimento;
+	}
+
+	public TipoPessoa getTipoPessoa() {
+		return tipoPessoa;
+	}
+
+	public void setTipoPessoa(TipoPessoa tipoPessoa) {
+		this.tipoPessoa = tipoPessoa;
 	}
 
 	@Override
