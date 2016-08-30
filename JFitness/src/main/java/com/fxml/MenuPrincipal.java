@@ -2,6 +2,7 @@ package com.fxml;
 
 import java.io.IOException;
 
+import com.model.PessoaAutenticada;
 import com.utils.ChamaTela;
 
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ public class MenuPrincipal {
 	
 	public void menuPessoas() throws IOException{
 		ChamaTela.Montar("cadPessoas.fxml", btnPessoas.getScene().getWindow(), "JFitness - Cadastro de Pessoas", false, false);
+		System.out.println(PessoaAutenticada.getPessoa().getNome());
 	}
 	
 	

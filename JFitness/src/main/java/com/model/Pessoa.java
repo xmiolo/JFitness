@@ -4,6 +4,14 @@ import java.time.LocalDate;
 
 import javax.persistence.*;
 
+
+@NamedNativeQueries({
+	@NamedNativeQuery(
+	name = "autenticaPessoa",
+	query = "select * from pessoa where email = :email and senha = md5(:senha) ",
+        resultClass = Pessoa.class
+	)
+})
 @Entity
 @Table(name = "pessoa", schema = "public")
 public class Pessoa {

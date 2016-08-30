@@ -9,7 +9,7 @@ public class LoginController {
 
 	public LoginController() {
 		super();
-		this.pessoaDAO = pessoaDAO.getInstance();
+		this.pessoaDAO = new PessoaDAO();
 	}
 	
 	public boolean autenticarPessoa(Pessoa pessoa){

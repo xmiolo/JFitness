@@ -14,7 +14,6 @@ public class TipoPessoaController {
 		this.tipopessoaDAO = new TipoPessoaDAO();
 	}
 
-
 	public List<TipoPessoa> listTipoPessoa(){
 		return tipopessoaDAO.getList();
 	}

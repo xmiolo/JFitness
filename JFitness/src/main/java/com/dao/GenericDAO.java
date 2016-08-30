@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -15,46 +16,48 @@ import org.hibernate.cfg.Configuration;
 
 public abstract class GenericDAO<T, I extends Serializable> {
 
+	
 	protected EntityManager entityManager;
-	protected static SessionFactory sessionFactory;
+
 	private Class<T> persistedClass;
 
-	protected GenericDAO() {
-	}
+	protected GenericDAO() {}
 
 	protected GenericDAO(Class<T> persistedClass) {
-		this();
-		this.persistedClass = persistedClass;
-		entityManager = getEntityManager();
-		sessionFactory = new Configuration().configure().buildSessionFactory();
+	       this();
+	       this.persistedClass = persistedClass;
+	   }
+	
+	protected void setUp() throws Exception {
+		entityManager = Persistence.createEntityManagerFactory( "jfitness" ).createEntityManager();
 	}
 
-	public T insert(T entity) {
-		entityManager.getTransaction().begin();
+	public T salvar( T entity) {
+		EntityTransaction t = entityManager.getTransaction();
+		t.begin();
 		entityManager.persist(entity);
-		entityManager.getTransaction().commit();
+		entityManager.flush();
+		t.commit();
 		return entity;
 	}
 
-	public T update(T entity) {
-		try {
-			entityManager.getTransaction().begin();
-			entityManager.merge(entity);
-			entityManager.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+	public T atualizar( T entity) {
+		EntityTransaction t = entityManager.getTransaction();
+		t.begin();
+		entityManager.merge(entity);
+		entityManager.flush();
+		t.commit();
 		return entity;
 	}
 
-	public void delete(I id) {
-		T entity = find(id);
-		entityManager.getTransaction().begin();
+	public void remover(I id) {
+		T entity = encontrar(id);
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
 		T mergedEntity = entityManager.merge(entity);
 		entityManager.remove(mergedEntity);
-		entityManager.getTransaction().commit();
-
+		entityManager.flush();
+		tx.commit();
 	}
 
 	public List<T> getList() {
@@ -64,19 +67,7 @@ public abstract class GenericDAO<T, I extends Serializable> {
 		return entityManager.createQuery(query).getResultList();
 	}
 
-	public T find(I id) {
+	public T encontrar(I id) {
 		return entityManager.find(persistedClass, id);
-	}
-
-	private EntityManager getEntityManager() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("jfitness");
-		if (entityManager == null) {
-			entityManager = factory.createEntityManager();
-		}
-		return entityManager;
-	}
-
-	public Session getSession() {
-		return sessionFactory.getCurrentSession();
 	}
 }

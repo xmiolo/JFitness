@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConexaoJDBCFactory{
+public class NAOUTILIZARConexaoJDBCFactory{
 	
-	public ConexaoJDBCFactory() {
+	public NAOUTILIZARConexaoJDBCFactory() {
 		
 	}
 	
