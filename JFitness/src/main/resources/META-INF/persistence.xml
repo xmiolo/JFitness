@@ -12,6 +12,10 @@
 		<!-- entidade mapeada -->
 		<class>com.model.Pessoa</class>
 		<class>com.model.TipoPessoa</class>
+		<class>com.model.Cidade</class>
+		<class>com.model.Estado</class>
+		<class>com.model.Pais</class>
+		
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
