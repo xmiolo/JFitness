@@ -10,9 +10,9 @@ import javafx.stage.Window;
 
 public class ChamaTela {
 	
-	private static Parent ROOT;
-	private static Stage NEWSTAGE;
-	private static Scene SCENE;
+	private Parent ROOT;
+	private Stage NEWSTAGE;
+	private Scene SCENE;
 	
 	public ChamaTela(){}
 	/**
@@ -22,7 +22,7 @@ public class ChamaTela {
 	 * @param title (String titulo da tela)
 	 * @param resizable 
 	 */
-	public static void Montar(String resource, Window stage, String title, boolean resizable, boolean maximized){
+	public void Montar(String resource, Window stage, String title, boolean resizable, boolean maximized){
 		try {
 			ROOT = FXMLLoader.load(ChamaTela.class.getResource("../fxml/"+resource));
 		} catch (IOException e) {

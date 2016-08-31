@@ -23,8 +23,7 @@ public class Estado {
 	@JoinColumn(name="cdpais", nullable=false)
 	private Pais pais;
 
-	public Estado() {
-	}
+	public Estado() {	}
 
 	/**
 	 * @return the cdEstado

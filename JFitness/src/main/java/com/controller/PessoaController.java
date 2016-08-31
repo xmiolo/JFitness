@@ -7,7 +7,7 @@ public class PessoaController {
 	private PessoaDAO pessoaDAO;
 	
 	public PessoaController() {
-		this.pessoaDAO = new PessoaDAO();
+		pessoaDAO = new PessoaDAO();
 	}
 
 

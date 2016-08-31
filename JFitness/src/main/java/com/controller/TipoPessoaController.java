@@ -11,7 +11,7 @@ public class TipoPessoaController {
 	private TipoPessoaDAO tipopessoaDAO;
 	
 	public TipoPessoaController() {
-		this.tipopessoaDAO = new TipoPessoaDAO();
+		tipopessoaDAO = new TipoPessoaDAO();
 	}
 
 	public List<TipoPessoa> listTipoPessoa(){

@@ -9,10 +9,10 @@ public class LoginController {
 
 	public LoginController() {
 		super();
-		this.pessoaDAO = new PessoaDAO();
+		pessoaDAO = new PessoaDAO();
 	}
 	
 	public boolean autenticarPessoa(Pessoa pessoa){
-		return this.pessoaDAO.getAutenticacao(pessoa.getEmail(), pessoa.getSenha());
+		return pessoaDAO.getAutenticacao(pessoa.getEmail(), pessoa.getSenha());
 	}
 }
