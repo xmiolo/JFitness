@@ -1,5 +1,8 @@
 package com.fxml;
 
+import org.jboss.jandex.Main;
+
+import com.Inicializa;
 import com.controller.LoginController;
 import com.model.Pessoa;
 import com.utils.ChamaTela;
@@ -11,7 +14,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class TelaLogin {
-
+	
+	public void setMain(){
+		Inicializa.main(null);
+	}
 	@FXML
 	private TextField txtLogin;
 	@FXML

@@ -34,7 +34,7 @@ public class CadPessoas {
 	@FXML
 	private ComboBox<Cidade> comboCidade;
 	@FXML
-	private ComboBox<String> comboTipoPessoa = new ComboBox<String>();
+	private ComboBox<TipoPessoa> comboTipoPessoa = new ComboBox<TipoPessoa>();
 
 	private TipoPessoaController tpPessoaController;
 
@@ -45,13 +45,9 @@ public class CadPessoas {
 
 	@FXML
     private void initialize() {
+		//System.out.println("aisdAHSDUIHASUIDHASUIh");
 		tpPessoaController = new TipoPessoaController();
-		comboTipoPessoa.getItems().clear();
-		System.out.println(tpPessoaController.listTipoPessoa());
-		// FXCollections.observableArrayList(tipoPessoaDAO.getList())
-		// FXCollections.observableArrayList()
-
-		comboTipoPessoa.getItems().addAll(FXCollections.observableArrayList("1", "2"));
+		comboTipoPessoa.getItems().addAll(tpPessoaController.listTipoPessoa());
 	}
 	
 }

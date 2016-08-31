@@ -2,6 +2,8 @@ package com.utils;
 
 import java.io.IOException;
 
+import com.Inicializa;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,7 +12,6 @@ import javafx.stage.Window;
 
 public class ChamaTela {
 	
-	private Parent ROOT;
 	private Stage NEWSTAGE;
 	private Scene SCENE;
 	
@@ -24,12 +25,12 @@ public class ChamaTela {
 	 */
 	public void Montar(String resource, Window stage, String title, boolean resizable, boolean maximized){
 		try {
-			ROOT = FXMLLoader.load(ChamaTela.class.getResource("../fxml/"+resource));
+			Inicializa.root = FXMLLoader.load(ChamaTela.class.getResource("../fxml/"+resource));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		NEWSTAGE = (Stage) stage;
-		SCENE = new Scene(ROOT);
+		SCENE = new Scene(Inicializa.root);
 		SCENE.getStylesheets().add("fextile.css");
 		NEWSTAGE.setTitle(title);
 		NEWSTAGE.setScene(SCENE);
